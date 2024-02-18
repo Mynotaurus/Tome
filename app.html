@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tome!</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div id="container">
+      <div id="quest-log-body">
+        <div class="log-entry quest">
+            <input type="checkbox" id="entry3" class="checkbox"/>
+            <label for="entry3">Write that email</label>
+        </div>
+        <div class="log-entry side-quest">
+            <input type="checkbox" id="entry2" class="checkbox"/>
+            <label for="entry2">Walk a dog</label>
+        </div>
+        <div class="log-entry main-quest">
+            <input type="checkbox" id="entry1" class="checkbox bigcheckbox"/>
+            <label for="entry1">Do the Dishes</label>
+            <div class="subentries">
+                <div class="log-entry quest">
+                    <input type="checkbox" id="entry4" class="checkbox"/>
+                    <label for="entry4">Wash plates</label>
+                </div>
+                <div class="log-entry quest">
+                    <input type="checkbox" id="entry5" class="checkbox"/>
+                    <label for="entry5">Rinse plates</label>
+                </div>
+                <div class="log-entry side-quest">
+                    <input type="checkbox" id="entry6" class="checkbox"/>
+                    <label for="entry6">Dry plates</label>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
