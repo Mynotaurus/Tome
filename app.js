@@ -1,9 +1,15 @@
 const tiers = ["main-quest","quest","side-quest"];
-
+function wiggle(just_inner) {
+    if(just_inner){
+        return `transform: rotate(`+(Math.random()-0.5)*4+`deg)`;
+    }else{
+        return `style="transform: rotate(`+(Math.random()-0.5)*6+`deg)"`;
+    }
+}
 function makeQuest(id, questType, text){
-    var htmlString = `<div class="log-entry `+questType+`" style="transform: rotate(`+(Math.random()*4-2)+`deg)">
-        <input type="checkbox" id="quest__`+id+`" style="transform: rotate(`+(Math.random()*4-2)+`deg)" class="checkbox`+(questType == "main-quest" ? " bigcheckbox" : "")+`"/>
-        <label for="quest__`+id+`">`+text+`</label>
+    var htmlString = `<div class="log-entry `+questType+`">
+        <input type="checkbox" id="quest__`+id+`" `+wiggle()+`class="checkbox"/>
+        <label for="quest__`+id+`" `+wiggle()+`>`+text+`</label>
     </div>`
 
     var div = document.createElement('div');
@@ -11,14 +17,16 @@ function makeQuest(id, questType, text){
 
     var add_button = document.createElement("button");
     add_button.classList.add("add-button");
-    add_button.innerHTML = "Add quest";
+    add_button.innerHTML = "Add";
     add_button.addEventListener("click", createNewQuest);
+    add_button.style = wiggle(true);
     div.firstChild.appendChild(add_button);
 
     var del_button = document.createElement("button");
     del_button.classList.add("delete-button");
-    del_button.innerHTML = "Delete quest";
+    del_button.innerHTML = "Delete";
     del_button.addEventListener("click", deleteQuest);
+    del_button.style = wiggle(true);
     div.firstChild.appendChild(del_button);
 
     return div.firstChild;
@@ -37,8 +45,9 @@ function addSubEntry(parent, child){
 
 function createNewQuest(){
     var text = prompt("What is your new quest?");
+    var ql = prompt("quest level?");
     let newuuid = crypto.randomUUID();
-    let nq = makeQuest(newuuid,tiers[Math.floor(Math.random()*3)],text)
+    let nq = makeQuest(newuuid,ql,text)
     if(this.parentNode.classList.contains("quest-log-body")){
         this.parentNode.insertBefore(nq,this);
     }else{

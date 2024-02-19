@@ -11,19 +11,36 @@
     src: url('assets/Lora-Italic-VariableFont_wght.ttf');
 }
 
+@font-face { 
+    font-family: 'Avara';
+    src: url('assets/Avara-Bold.otf');
+}
+@font-face { 
+    font-family: 'Avara Black';
+    src: url('assets/Avara-Black.otf');
+}
+@font-face { 
+    font-family: 'Avara Italic';
+    src: url('assets/Avara-BoldItalic.otf');
+}
+
 html, body {
     margin: 0; 
     background: url("assets/lined_background.png");
     background-color: #a57;   
 }
 
-.quest-log-body {
-    padding-left: 20px;
-    width: 50vw;
+h1 {
+    font-family:"Avara Black",serif;
+    font-size: 32px;
+    text-align: center;
 }
 
+.quest-log-body {
+    padding-left: 5vw;
+
 .log-entry {
-    padding: 10px;
+    padding: 5px;
 }
 
 .subentries {
@@ -37,26 +54,27 @@ label {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  transition: all 0.1s linear;
+  color: #111;
+}
+
+.log-entry:hover > label {
+    color: #612;
 }
 
 .main-quest > label {
-    font-family: Trickster, serif;
+    font-family: "Avara Black", serif;
     font-size: 24px;
-    color: #111;
 }
 
 .quest > label {
-    font-family: Lora, serif;
-    font-weight: 600;
+    font-family: Avara, serif;
     font-size: 24px;
-    color: #111;
 }
 
 .side-quest > label {
-    font-family: "Lora Italic", serif;
-    font-weight: 600;
+    font-family: "Avara Italic", serif;
     font-size: 18px;
-    color: #111;
 }
 
 .side-quest, .quest {
@@ -90,16 +108,46 @@ label {
     transform: scale(1.8) rotate(-9deg);
 }
 
-.bigcheckbox {
+.main-quest > .checkbox {
     width: 2.1rem;
     height: 2.1rem;
 }
 
-.bigcheckbox::before {
+.main-quest > .checkbox::before {
     width: 1.4rem;
     height: 1.4rem;
 }
 
+.side-quest > .checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 0.6rem;
+}
+
+.side-quest > .checkbox::before {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
 .add-button {
     margin-left: 5px;
+}
+
+label {
+    margin-right: 20px;
+}
+
+button {
+    font-family: "Avara", serif;
+    background-color: #eef0;
+    color: #0008;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    padding-top: 4px;
+}
+
+button:hover {
+    background-color: #eef6;
+    color: #000;
 }
